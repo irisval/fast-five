@@ -1,0 +1,21 @@
+<h5><u><strong>Fast Five Submissions</strong></u></h5>
+<br>
+
+<div>
+	{{#each sub}}
+		<ul class="collection with-header">
+			<a href="/submissions/{{name}}" class="collection-item"><h6>{{name}}</h6></a>
+			<li class="collection-item"><strong><u>Title:</u> </strong>{{title}}</li>
+			<li class="collection-item"><strong><u>URL:</u> </strong><a href="{{url}}">{{url}}</a></li>
+
+			<li class="collection-item"><strong><u>Possible Quotes:</u> </strong>
+				<br>Message Before:<i>{{#if possibleQuotes.[0]}} "{{possibleQuotes.[0]}}" {{else}} none {{/if}}</i>
+				<br>Message After:<i>{{#if possibleQuotes.[1]}} "{{possibleQuotes.[1]}}" {{else}} none {{/if}}</i>
+			</li>
+			<li class="collection-item"><strong><u>LQs:</u> </strong>
+				{{#if LQ}}{{LQ}}{{else}}none{{/if}}
+			</li>
+			<li class="collection-item"><strong><u>Timestamp:</u> </strong>{{timestamp}}</li>
+		</ul>
+	{{/each}}
+</div>
