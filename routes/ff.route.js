@@ -14,6 +14,11 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'ff' });
 });
 
+router.get('/submissions', ff_controller.displayAll);
 
-router.get('/submissions', ff_controller.display);
+router.get('/submissions/:id', ff_controller.displayUser);
+
+
+// router.get('/submissions/:id/update', ff_controller.displayUser);
+
 module.exports = router;

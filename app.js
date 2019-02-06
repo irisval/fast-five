@@ -2,7 +2,8 @@ require('dotenv').config();
 
 const express = require('express');
 const bodyParser = require('body-parser');
-const hbs = require('hbs');
+
+
 const ff = require('./routes/ff.route');
 const app = express();
 const mongoose = require('mongoose');
@@ -17,9 +18,33 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(express.static('./public'));
 app.use('/', ff);
 
-hbs.registerPartials('./views/partials');
+
+const exphbs  = require('express-handlebars');
+
+//when configuring the app view engine
+app.engine('.hbs', exphbs({
+  extname: '.hbs',
+  helpers: require('./public/js/helpers.js'), //only need this
+  layoutsDir: './views',
+  defaultLayout: 'layout',
+  partialsDir: './views/partials'
+}));
+
 app.set('view engine', 'hbs');
 app.set('views', './views');
+// exphbs.registerPartial('./views/partials');
+// const hbs = require('hbs');
+// app.set('views', './views');
+// app.set('view engine', 'handlebars');
+// app.engine('handlebars', engines.handlebars);
+
+// hbs.registerHelper('splitDate', function(date) {
+//   	let d = date.replace("-","");
+//   	return d;
+// });
+
+
+
 
 let port = process.env.PORT;
 

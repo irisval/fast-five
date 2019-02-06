@@ -1,0 +1,73 @@
+<h5><u><strong>Fast Five Submissions</strong></u></h5>
+<h6>Submissions from {{name}}:</h6>
+<br>
+
+<div>
+	{{#each sub}}
+		<ul class="collection with-header">
+			<li contenteditable="true" class="collection-item"><strong><u>Title:</u> </strong>{{title}}</li>
+			<li class="collection-item"><strong><u>URL:</u> </strong><a href="{{url}}">{{url}}</a></li>
+
+			<li class="collection-item"><strong><u>Possible Quotes:</u> </strong>
+				<br>Message Before:<i>{{#if possibleQuotes.[0]}} "{{possibleQuotes.[0]}}" {{else}} none {{/if}}</i>
+				<br>Message After:<i>{{#if possibleQuotes.[1]}} "{{possibleQuotes.[1]}}" {{else}} none {{/if}}</i>
+			</li>
+			<li class="collection-item"><strong><u>LQs:</u> </strong>
+				{{#if LQ}}{{LQ}}{{else}}none{{/if}}
+			</li>
+			<li class="collection-item"><strong><u>Timestamp:</u> </strong>{{timestamp}}</li>
+		</ul>
+	{{/each}}
+	<a class="waves-effect waves-light btn modal-trigger" href="#modal1">Modal</a>
+
+	<div id="modal1" class="modal">
+	    <div class="modal-content">
+	      <h4>Update Submissions</h4>
+	      <div class="row">
+	        <form class="col s12">
+	          <div class="row modal-form-row">
+	            <div class="input-field col s12">
+	              <input id="title" type="text" class="validate">
+	              <label for="title">Title</label>
+	            </div>
+	          </div>
+	          <div class="row modal-form-row">
+	            <div class="input-field col s12">
+	              <input id="url" type="text" class="validate">
+	              <label for="url">URL</label>
+	            </div>
+	          </div>
+	          <div class="row">
+	            <div class="input-field col s12">
+	              <input id="qtBefore" type="text" class="validate">
+	              <label for="qtBefore">Message Before</label>
+	            </div>
+	          </div>
+	          <div class="row">
+	            <div class="input-field col s12">
+	              <input id="qtAfter" type="text" class="validate">
+	              <label for="qtAfter">Message After</label>
+	            </div>
+	          </div>
+	          <!-- add linkquotes -->  
+	          <!-- <div class="row">
+	            <div class="input-field col s12">
+	              <textarea id="image_description" type="text" class="materialize-textarea validate"></textarea>
+	              <label for="image_description">Description</label>
+	            </div>
+	          </div>     -->         
+	        </form>
+	      </div>
+	    </div>
+	    <div class="modal-footer">
+	      <a class=" modal-action modal-close waves-effect waves-green btn-flat">Submit</a>
+	    </div>
+	  </div>
+
+</div>
+
+
+  <!-- Modal Structure -->
+ 
+
+

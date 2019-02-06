@@ -3,6 +3,10 @@ const Schema = mongoose.Schema;
 
 
 let FFSchema = new Schema({
+	week: {
+		type: String,
+		required: true
+	},
 	timestamp: {
 		type: Date,
 		required: true
@@ -17,7 +21,9 @@ let FFSchema = new Schema({
 	},
 	url: {
 		type: String,
-		required: true
+		required: true,
+		unique: true,
+		index: true
 	},
 	possibleQuotes: {
 		type: Array,
@@ -30,5 +36,5 @@ let FFSchema = new Schema({
 	}
 });
 
-module.exports = mongoose.model('FF', FFSchema);
 
+module.exports = mongoose.model('FF', FFSchema);

@@ -1,9 +1,12 @@
 const FF = require('../models/ff.model');
+
 let request = require('request');
 // ^ breaks if you use const
 exports.test = function(req, res) {
 	res.send('controller message');
 };
+
+
 
 exports.insert = function(req, res) {
 	request({
@@ -24,37 +27,96 @@ exports.insert = function(req, res) {
            	let data = JSON.parse(body);
             let pastWeekMsgs = filterMsgs(data);
             let submissions = restructure(pastWeekMsgs);
-            
+             
             try {
-                FF.insertMany(submissions);  
+                FF.insertMany(submissions); 
+                // Week.insert(getWeek(d)); 
+                
             } catch(e) {
-                print(e);
+                console.log(e);
             }
         }
 	})
 };
 
-exports.display = function(req, res) {
-    FF.find({}, function(err, s){
+
+exports.displayAll = function(req, res) {
+    FF.find({}).sort({'timestamp': -1}).exec(function(err, s) {
+        if (err) 
+            console.log(err);
+        
+        FF.find().distinct('week', function(err, w) {
+            if (err) 
+                console.log(err);
+            
+            res.render('submissions', {'sub': s, 'weeks': w, 'title':'bugaloo'});
+   
+        })
+    });
+
+}
+//     FF.find({}, function(err, s) {
+//         if (err) 
+//             console.log(err);
+        
+//         FF.find().distinct('week', function(err, w) {
+//             if (err) 
+//                 console.log(err);
+            
+//             res.render('submissions', {'sub': s, 'weeks': w, 'title':'bugaloo'});
+   
+//         })
+        
+//     });
+// };
+
+
+
+
+
+// exports.displayAll = function(req, res) {
+
+//     FF.find({}, function(err, s){
+//          res.render('submissions', {'sub': s,  'title':'bugaloo'});
+//     });  
+
+// };
+
+
+
+
+
+
+
+exports.displayUser = function(req, res) {
+    FF.find({"name": req.params.id}, function(err, s){
         if (err)
             throw err;
-        // console.log(s);
-        res.render('submissions', {'sub': s, 'title':'bugaloo'});
-    });
-    
-};
+        if (s.length > 0)
+            res.render('submission', {'sub': s, 'name': req.params.id, 'title':'bugaloo'});
+        else
+            res.redirect('/submissions');
+    })
+}
 
-function filterMsgs(r) {
-    let d = new Date();
-    elapsedDays =  (7 - (5 - d.getDay()) % 7);
+function getWeek(v, l) {
+    // let d = new Date(msg.ts*1000); do this for getting info for previous weeks
+    d = new Date(v);
+    elapsedDays =  (l - (5 - d.getDay()) % 7);
     lastFri = d.getTime() - (elapsedDays * 86400000);
-
     d.setTime(lastFri);
     d.setHours(18);
     d.setMinutes(0);
     d.setSeconds(0);
+    d.setUTCMilliseconds(0);
 
-    unixLastFri = d.getTime() / 1000;
+    return d;
+}
+
+
+function filterMsgs(r) {
+    let d = new Date();
+    unixLastFri = getWeek(d, 21) / 1000;
 
     // filter by date
     msgs = r.messages;
@@ -125,12 +187,16 @@ function restructure(ml) {
         msg = ml[i];
         userID = msg.user;
     
-        if (msg.hasOwnProperty("attachments")) {
+ 
+
+        if (msg.hasOwnProperty("attachments") && msg.attachments[0].title != undefined) {
             
            	title = msg.attachments[0].title;
             url = msg.attachments[0].title_link;
-            ts = msg.ts;
 
+            let ts = new Date(msg.ts*1000);
+            
+            
             if (!msg.hasOwnProperty("client_msg_id"))
                 msg.client_msg_id = generateID();
             userMessages = getUserMessages(ml, userID);
@@ -141,8 +207,17 @@ function restructure(ml) {
 
     
             LQ = getLQ(userMessages); 
+            
+            let week = getWeek(msg.ts*1000, 7);
+            // console.log(week);
+            // this is garbage code fix this later
+         
+            let date = new Date(week);
+            week = (date.getMonth() + 1) + "-" + date.getDate() + "-" + date.getFullYear();
+          
 
             s = new FF({
+                week: week,
             	timestamp: ts,
             	name: userID,
             	title: title,
@@ -157,3 +232,11 @@ function restructure(ml) {
 
     return submissions;
 }
+
+
+
+
+
+
+
+
