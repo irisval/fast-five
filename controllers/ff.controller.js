@@ -119,11 +119,11 @@ exports.displayffs = function(req, res) {
 
 
 exports.displayUser = function(req, res) {
-    FF.find({"name": req.params.id}, function(err, s){
+    FF.find({"name": req.params.name}, function(err, s){
         if (err)
             throw err;
         if (s.length > 0)
-            res.render('submission', {'sub': s, 'name': req.params.id, 'title':'bugaloo'});
+            res.render('submission', {'sub': s, 'name': req.params.name, 'title':'bugaloo'});
         else
             res.redirect('/submissions');
     })

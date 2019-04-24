@@ -12,12 +12,12 @@ router.post('/post', ff_controller.insert);
 router.post('/submitentry', ff_controller.createFF);
 
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'ff' });
+  res.redirect('/submissions');
 });
 
 router.get('/submissions', ff_controller.displayAll);
 
-router.get('/submissions/:id', ff_controller.displayUser);
+router.get('/submissions/:name', ff_controller.displayUser);
 router.get('/fastfives', ff_controller.displayffs)
 
 // router.get('/submissions/:id/update', ff_controller.displayUser);

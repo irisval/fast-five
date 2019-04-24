@@ -1,9 +1,17 @@
-
-<h5><u><strong>Fast Five Submissions</strong></u></h5>
-<br>
+<nav>
+<div class="nav-wrapper">
+  <span id="title"><u>Fast Five Submissions</u></span>
+  <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+  <ul class="right hide-on-med-and-down">
+    <li><a href="/">All Submissions</a></li>
+    <li><a href="/fastfives">Previous Fast Fives</a></li>
+    <li><a href="collapsible.html">Scoreboard</a></li>
+  </ul>
+</div>
+</nav>
 
 <div>
-	<a class='dropdown-trigger btn' href='#' data-target='dropdown1'>Filter</a>
+	<a class='dropdown-trigger indigo accent-4 btn' href='#' data-target='dropdown1'>Filter</a>
 	<p id="viewing">viewing all fast fives</p>
 	<ul id='dropdown1' class='dropdown-content'>
 		<li><a id="filter-all" class="filter" href="#">View All</a></li>
@@ -14,18 +22,14 @@
         
 </div>
 
-
 <div>
 	{{#each entries}}
 	<div class="entry {{splitDate weekUsed}}">
 		<ul class="collection with-header">
-			<a href="/submissions/{{name}}" class="collection-item"><h6>{{name}}</h6></a>
+			<li class="collection-item"><strong><u>Name:</u> </strong>{{name}}</li>
 			<li contenteditable="true" class="collection-item"><strong><u>Title:</u> </strong>{{title}}</li>
 			<li class="collection-item"><strong><u>URL:</u> </strong><a href="{{url}}">{{url}}</a></li>
-			<li class="collection-item"><strong><u>Possible Quotes:</u> </strong>
-				<br>Message Before:<i>{{#if possibleQuotes.[0]}} "{{possibleQuotes.[0]}}" {{else}} none {{/if}}</i>
-				<br>Message After:<i>{{#if possibleQuotes.[1]}} "{{possibleQuotes.[1]}}" {{else}} none {{/if}}</i>
-			</li>
+			<li class="collection-item"><strong><u>Quote Used:</u> </strong>"{{actualQuote}}"</li>
 			<li class="collection-item"><strong><u>Timestamp:</u> </strong>{{timestamp}}</li>
 			<li class="collection-item"><strong><u>Week Used:</u> </strong>{{weekUsed}}</li>
 		</ul>
