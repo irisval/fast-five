@@ -35,16 +35,20 @@ exports.insert = function(req, res) {
                     s.name = u;
                     console.log("HELLO " + s.uid);
                     console.log(s);
+                    s.save(function(err) {
+                        if (err)
+                            console.log("well fuckaroo");
+                        // else {
+                        //    // console.log(s);
+                        // }
+     
+                    });
+
                 });
+                  
+
             })
 
-            try {
-                FF.insertMany(submissions); 
-                // Week.insert(getWeek(d)); 
-                
-            } catch(e) {
-                console.log(e);
-            }
         }
 	})
 };
@@ -64,38 +68,6 @@ exports.displayAll = function(req, res) {
         })
     });
 }
-
-
-//     FF.find({}, function(err, s) {
-//         if (err) 
-//             console.log(err);
-        
-//         FF.find().distinct('week', function(err, w) {
-//             if (err) 
-//                 console.log(err);
-            
-//             res.render('submissions', {'sub': s, 'weeks': w, 'title':'bugaloo'});
-   
-//         })
-        
-//     });
-// };
-
-
-
-
-
-// exports.displayAll = function(req, res) {
-
-//     FF.find({}, function(err, s){
-//          res.render('submissions', {'sub': s,  'title':'bugaloo'});
-//     });  
-
-// };
-
-
-
-
 
 
 
@@ -194,6 +166,7 @@ function getUser(uid, callback) {
             callback(createUser(uid));
     });
 }
+
 function createUser(uid) {
     request({
         url: 'https://slack.com/api/users.info',
