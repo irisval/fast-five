@@ -9,7 +9,7 @@ router.get('/m', ff_controller.test);
 
 router.post('/post', ff_controller.insert);
 
-
+router.post('/submitentry', ff_controller.createFF);
 
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'ff' });
@@ -18,7 +18,7 @@ router.get('/', function(req, res, next) {
 router.get('/submissions', ff_controller.displayAll);
 
 router.get('/submissions/:id', ff_controller.displayUser);
-
+router.get('/fastfives', ff_controller.displayffs)
 
 // router.get('/submissions/:id/update', ff_controller.displayUser);
 

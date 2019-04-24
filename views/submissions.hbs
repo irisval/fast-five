@@ -17,8 +17,12 @@
 
 
 
-
-<form action="#">
+<form action="/submitentry" method="post">
+	{{#with weeks.[1]}}
+		<input type="hidden" name="week" value="{{this}}"></input>
+	{{/with}}
+	<button type="submit" class='btn' href='#'>Submit Entries</button>
+	
 {{#each sub}}
 {{#if (newRow @index)}}
 <div class="row">
@@ -27,7 +31,7 @@
 <div class="col s4">
 <div class="sub {{splitDate week}}">
 	<ul class="collection with-header">
-		<label><input type="checkbox" class="filled-in" /><span></span></label>
+		<label><input type="checkbox" name="entry" class="filled-in" value="{{url}}"/><span></span></label>
 		<a href="/submissions/{{name}}" class="collection-item"><h6>{{name}}</h6></a>
 		
 		<li contenteditable="true" class="collection-item"><strong><u>Title:</u> </strong>{{title}}</li>

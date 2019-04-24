@@ -1,0 +1,34 @@
+
+<h5><u><strong>Fast Five Submissions</strong></u></h5>
+<br>
+
+<div>
+	<a class='dropdown-trigger btn' href='#' data-target='dropdown1'>Filter</a>
+	<p id="viewing">viewing all fast fives</p>
+	<ul id='dropdown1' class='dropdown-content'>
+		<li><a id="filter-all" class="filter" href="#">View All</a></li>
+   		{{#each weeks}}
+			<li><a id="filter-{{splitDate this}}" class="filter" href="#">{{this}}</a></li>
+		{{/each}}
+  </ul>
+        
+</div>
+
+
+<div>
+	{{#each entries}}
+	<div class="entry {{splitDate weekUsed}}">
+		<ul class="collection with-header">
+			<a href="/submissions/{{name}}" class="collection-item"><h6>{{name}}</h6></a>
+			<li contenteditable="true" class="collection-item"><strong><u>Title:</u> </strong>{{title}}</li>
+			<li class="collection-item"><strong><u>URL:</u> </strong><a href="{{url}}">{{url}}</a></li>
+			<li class="collection-item"><strong><u>Possible Quotes:</u> </strong>
+				<br>Message Before:<i>{{#if possibleQuotes.[0]}} "{{possibleQuotes.[0]}}" {{else}} none {{/if}}</i>
+				<br>Message After:<i>{{#if possibleQuotes.[1]}} "{{possibleQuotes.[1]}}" {{else}} none {{/if}}</i>
+			</li>
+			<li class="collection-item"><strong><u>Timestamp:</u> </strong>{{timestamp}}</li>
+			<li class="collection-item"><strong><u>Week Used:</u> </strong>{{weekUsed}}</li>
+		</ul>
+		</div>
+	{{/each}}
+</div>

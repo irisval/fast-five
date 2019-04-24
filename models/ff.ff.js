@@ -37,6 +37,21 @@ let FFSchema = new Schema({
 	LQ: {
 		type: String,
 		default: ''
+	},
+	used: {
+		type: Boolean,
+		default: false,
+		required: true
+	},
+	weekUsed: {
+		type: String,
+		default: ' ',
+		required: false
+	},
+	actualQuote: {
+		type: String,
+		default: ' ',
+		required: false
 	}
 });
 
