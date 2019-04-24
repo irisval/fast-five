@@ -8,6 +8,8 @@ const ff = require('./routes/ff.route');
 const app = express();
 const mongoose = require('mongoose');
 
+
+
 mongoose.connect(process.env.MLAB_URI, {useNewUrlParser: true});
 mongoose.Promise = global.Promise;
 const db = mongoose.connection;

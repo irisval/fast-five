@@ -10,6 +10,7 @@ router.get('/m', ff_controller.test);
 router.post('/post', ff_controller.insert);
 
 
+
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'ff' });
 });

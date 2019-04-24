@@ -16,10 +16,20 @@
 
 
 
+
+
+<form action="#">
 {{#each sub}}
+{{#if (newRow @index)}}
+<div class="row">
+{{/if}}
+
+<div class="col s4">
 <div class="sub {{splitDate week}}">
 	<ul class="collection with-header">
+		<label><input type="checkbox" class="filled-in" /><span></span></label>
 		<a href="/submissions/{{name}}" class="collection-item"><h6>{{name}}</h6></a>
+		
 		<li contenteditable="true" class="collection-item"><strong><u>Title:</u> </strong>{{title}}</li>
 		<li class="collection-item"><strong><u>URL:</u> </strong><a href="{{url}}">{{url}}</a></li>
 
@@ -33,4 +43,9 @@
 		<li class="collection-item"><strong><u>Timestamp:</u> </strong>{{timestamp}}</li>
 	</ul>
 	</div>
+</div>
+{{#if (closeRow @index)}}
+</div>
+{{/if}}
 {{/each}}
+</form>

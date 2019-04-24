@@ -1,11 +1,13 @@
-const FF = require('../models/ff.model');
+const FF = require('../models/ff.ff');
+const User = require('../models/ff.user');
 
 let request = require('request');
 // ^ breaks if you use const
+
+
 exports.test = function(req, res) {
 	res.send('controller message');
 };
-
 
 
 exports.insert = function(req, res) {
@@ -27,7 +29,15 @@ exports.insert = function(req, res) {
            	let data = JSON.parse(body);
             let pastWeekMsgs = filterMsgs(data);
             let submissions = restructure(pastWeekMsgs);
-             
+           
+            submissions.forEach(function(s, index) {
+                getUser(s.uid, function(u) {
+                    s.name = u;
+                    console.log("HELLO " + s.uid);
+                    console.log(s);
+                });
+            })
+
             try {
                 FF.insertMany(submissions); 
                 // Week.insert(getWeek(d)); 
@@ -53,8 +63,9 @@ exports.displayAll = function(req, res) {
    
         })
     });
-
 }
+
+
 //     FF.find({}, function(err, s) {
 //         if (err) 
 //             console.log(err);
@@ -169,6 +180,53 @@ function generateID() {
     return "GI-" + num;
 }
 
+// remove req & res
+
+
+function getUser(uid, callback) {
+    User.find({"uid": uid}, function(err, s){
+
+        if (err)
+            throw err;
+        if (s.length > 0)
+                callback(s[0].name);
+        else
+            callback(createUser(uid));
+    });
+}
+function createUser(uid) {
+    request({
+        url: 'https://slack.com/api/users.info',
+        qs: {token: process.env.TOKEN, user: uid},
+        method: 'POST'
+    }, function(error, response, body) {
+        if (error) {
+            console.log(error)
+        } else {
+            let name = JSON.parse(body).user.name;    
+
+                u = new User({
+                    uid: uid,
+                    name: name
+                });
+               
+                u.save(function(err) {
+                    if (err) {
+                        console.log("")
+                        // console.log("well fuck");
+                        // console.log(err);
+                        // duplicate key error COME BACK TO THIS
+                    } else {
+                        return name;
+                    }
+ 
+                });
+
+          
+        }
+    });
+}
+
 function restructure(ml) {
     // var obj = new Object();
     let submissions = [];
@@ -186,8 +244,6 @@ function restructure(ml) {
     for (let i = 0; i < ml.length; i++) {
         msg = ml[i];
         userID = msg.user;
-    
- 
 
         if (msg.hasOwnProperty("attachments") && msg.attachments[0].title != undefined) {
             
@@ -199,8 +255,8 @@ function restructure(ml) {
             
             if (!msg.hasOwnProperty("client_msg_id"))
                 msg.client_msg_id = generateID();
-            userMessages = getUserMessages(ml, userID);
-            possibleQuotes = neighborMessages(userMessages, msg.client_msg_id);
+                userMessages = getUserMessages(ml, userID);
+                possibleQuotes = neighborMessages(userMessages, msg.client_msg_id);
 
             if (msg.text.slice(1, -1) != url)
                 possibleQuotes.push(msg.text);
@@ -214,19 +270,22 @@ function restructure(ml) {
          
             let date = new Date(week);
             week = (date.getMonth() + 1) + "-" + date.getDate() + "-" + date.getFullYear();
-          
-
+    
             s = new FF({
-                week: week,
-            	timestamp: ts,
-            	name: userID,
-            	title: title,
-            	url: url,
-            	possibleQuotes: possibleQuotes,
-            	LQ: LQ
-            });
-
-           submissions.push(s)  
+                    week: week,
+                    timestamp: ts,
+                    uid: userID,
+                    name: " ",
+                    title: title,
+                    url: url,
+                    possibleQuotes: possibleQuotes,
+                    LQ: LQ
+                });
+            
+            submissions.push(s);
+            
+          
+       
         } 
     }
 

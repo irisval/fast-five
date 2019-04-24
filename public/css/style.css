@@ -1,3 +1,7 @@
 .none {
 	display: none;
 }
+
+html {
+	font-size: 12px !important;
+}

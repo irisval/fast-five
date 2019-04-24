@@ -12,8 +12,8 @@ $(function() {
 			$('div.sub').show();
 			$('#viewing').html("viewing all submissions");
 		} else {
-			$('div.sub:not' + "(." + week.replace("filter-", "") +  ")").hide();
-			$('div.sub.'+week.replace("filter-", "")).show();
+			$('div.sub:not' + "(." + week.replace("filter-", "") +  ")").parent().hide();
+			$('div.sub.'+week.replace("filter-", "")).parent().show();
 			$('#viewing').html("viewing submissions from week of " + week.replace("filter-",""));
 		}
 		
