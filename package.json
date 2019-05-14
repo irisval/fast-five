@@ -16,6 +16,7 @@
     "googleapis": "^27.0.0",
     "handlebars-helpers": "^0.10.0",
     "i": "^0.3.6",
+    "jquery-editable-select": "^2.2.5",
     "mongoose": "^5.4.14",
     "request": "^2.88.0"
   }

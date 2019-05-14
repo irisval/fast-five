@@ -1,93 +1,107 @@
 <nav>
-    <div class="nav-wrapper">
+   <div class="nav-wrapper">
       <span id="title"><u>Fast Five Submissions</u></span>
       <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
       <ul class="right hide-on-med-and-down">
-        <li><a href="/">All Submissions</a></li>
-        <li><a href="/fastfives">Previous Fast Fives</a></li>
-        <li><a href="collapsible.html">Scoreboard</a></li>
+         <li><a href="/">All Submissions</a></li>
+         <li><a href="/fastfives">Previous Fast Fives</a></li>
+         <li><a href="collapsible.html">Scoreboard</a></li>
       </ul>
-    </div>
-  </nav>
-
-
-
-<form action="/submitentry" method="post">
+   </div>
+</nav>
+<!-- 
+   <form id="submitEntryForm" onsubmit="return validate(this);"> -->
+<form id="submitEntryForm" action="/submitentry" method="post"></form>
 <div>
-	<p id="viewing">viewing all submissions</p>
-	<a class='dropdown-trigger indigo accent-4 btn' href='#' data-target='dropdown1'>Filter</a>
-	<button type="submit" class='btn blue accent-3' href='#'>Submit Entries</button>
-	
-	<ul id='dropdown1' class='dropdown-content'>
-		<li><a id="filter-all" class="filter" href="#">View All</a></li>
-   		{{#each weeks}}
-			<li><a id="filter-{{splitDate this}}" class="filter" href="#">{{this}}</a></li>
-		{{/each}}
-  </ul>
-        
+   <p id="viewing">viewing all submissions</p>
+   <a class='dropdown-trigger indigo accent-4 btn' href='#' data-target='dropdown1'>Filter</a>
+   <button type="submit" class='btn blue accent-3 modal-trigger' href='#confirmationModal' form="submitEntryForm">Submit Entries</button>
+   <!-- <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Modal</a>
+      -->
+   <div id="confirmationModal" class="modal">
+      <div class="modal-content">
+         <h4>Confirm Fast Five</h4>
+         <div class="valign-wrapper">
+            <div style="width: 100%;">
+               <a href="" class="" style="color: black !important;">oh well</a><br>
+               <p>Jan 15, 2017</p>
+               <hr class="list-divider">
+            </div>
+         </div>
+      </div>
+      <div class="modal-footer">
+         <input type="submit" form="submitEntryForm" value="Submit form!" />
+       <!--   <a class="modal-action modal-close waves-effect waves-green btn-flat">Submit</a> -->
+      </div>
+   </div>
+   <ul id='dropdown1' class='dropdown-content'>
+      <li><a id="filter-all" class="filter" href="#">View All</a></li>
+      {{#each weeks}}
+      <li><a id="filter-{{splitDate this}}" class="filter" href="#">{{this}}</a></li>
+      {{/each}}
+   </ul>
 </div>
 <br>
 <br>
-
-
-
-	{{#with weeks.[1]}}
-		<input type="hidden" name="week" value="{{this}}"></input>
-	{{/with}}
-	
-	
+{{#with weeks.[1]}}
+<input type="hidden" name="week" value="{{this}}" form="submitEntryForm"></input>
+{{/with}}
 {{#each sub}}
 {{#if (newRow @index)}}
 <div class="row">
-{{/if}}
-
-
-
-
-<div class="col s4">
-<div class="sub {{splitDate week}}">
-
-		
-		<div class="card">
-        <div class="card-content white-text">
-          <span><a href="/submissions/{{name}}" class="name">{{name}}</a> <p class="sub-date">({{prettyDate week}})</p></span>
-          <br>
-          <span>
-         <p class="text">Link: &nbsp; </p><a href="{{url}}" class="sub-title">{{title}}</a>
-         <br>
-         <span>
-         <p class="text">Quote: &nbsp; </p>
-         {{#if (hasQuote actualQuote) }}
-			<p style="display:inline-block;">"{{actualQuote}}"</p>
-
-         {{else}}
-         	<a class="waves-effect modal-trigger" href="#modal">set quote</a>
-         {{/if}}
-         </span>
-     </span>
-        </div>
-        <div class="card-action">
-          <p></p>
-          
-          <label><input type="checkbox" name="entry" class="checkbox filled-in" value="{{url}}"/><span>Use as entry</span></label>
-        </div>
+   {{/if}}
+   <div class="col s4">
+      <div class="sub {{splitDate week}}">
+         <div id="{{id}}" class="card">
+            <div class="card-content white-text">
+               <span>
+                  <a href="/submissions/{{name}}" class="name">{{name}}</a> 
+                  <p class="sub-date">({{prettyDate timestamp }})</p>
+               </span>
+               <br>
+               <span>
+                  <p class="text">Link: &nbsp; </p>
+                  <a href="{{url}}" class="sub-title">{{title}}</a>
+                  <br>
+               </span>
+               <!--  https://stackoverflow.com/questions/7231157/how-to-submit-form-on-change-of-dropdown-list -->
+               <!-- http://jsfiddle.net/fenderistic/6ejps/ -->
+               <!-- start select -->
+               <form name="setQuote" action="/setQuote/{{id}}" method="post" onsubmit="return false;">
+                  <select id="ff" name="quote" onchange="this.form.submit();">
+                     {{#if (hasQuote actualQuote) }}
+                     <option class="quoteSet" value="set" disabled selected>{{actualQuote}}</option>
+                     {{else}}
+                     <option value="notSet" disabled selected>Set Quote</option>
+                     {{/if}}
+                     {{#if possibleQuotes.[0]}}
+                     <option value='"{{possibleQuotes.[0]}}"'>"{{possibleQuotes.[0]}}"</option>
+                     {{/if}}
+                     {{#if possibleQuotes.[1]}}
+                     <option value='"{{possibleQuotes.[1]}}"'>"{{possibleQuotes.[1]}}"</option>
+                     {{/if}}
+                     {{#if LQ}}
+                     <option  value='"{{LQ}}"'>"{{LQ}}"</option>
+                     {{/if}}
+                     <option class="option-other" value="Other">Other (editable)</option>
+                  </select>
+                  <div class="other-input-field hidden">
+                     <input placeholder="Add Quote" id="otherQuote" type="text" class="validate">
+                  </div>
+               </form>
+               <!--  <option value="4"><textarea id="textarea1" class="materialize-textarea"></textarea>
+                  <label for="textarea1">Textarea</label></option> -->
+               <!--   <label>Materialize Select</label> --> 
+               <!-- end select -->
+            </div>
+            <div class="card-action">
+               <p></p>
+               <label><input type="checkbox" name="entry" class="checkbox filled-in" value="{{id}}"  form="submitEntryForm"/><span>Use as entry</span></label>
+            </div>
+         </div>
       </div>
-	
-			
-
-
-		<!-- <li class="collection-item"><strong><u>Possible Quotes:</u> </strong>
-			<br>Message Before:<i>{{#if possibleQuotes.[0]}} "{{possibleQuotes.[0]}}" {{else}} none {{/if}}</i>
-			<br>Message After:<i>{{#if possibleQuotes.[1]}} "{{possibleQuotes.[1]}}" {{else}} none {{/if}}</i>
-		</li>
-		<li class="collection-item"><strong><u>LQs:</u> </strong>
-			{{#if LQ}}{{LQ}}{{else}}none{{/if}}
-		</li> -->
-
-	</div>
-</div>
-{{#if (closeRow @index)}}
+   </div>
+   {{#if (closeRow @index)}}
 </div>
 {{/if}}
 {{/each}}
-</form>

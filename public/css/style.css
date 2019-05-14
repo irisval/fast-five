@@ -13,7 +13,12 @@ html, body {
 p {
 	color: #656565;
 }
-
+.hidden {
+	display: none;
+}
+.visible {
+	display: block;
+}
 #title {
 	color: transparent;
 	background-image: linear-gradient(to right,#00afec,#ea148c,#fff02a);
@@ -51,7 +56,7 @@ nav a {
 	text-decoration: underline;
 
 }
-.name {
+.name, h4 {
 	font-weight: 700 !important;
 	font-family: 'Open Sans';
 	text-transform: uppercase;
@@ -79,4 +84,49 @@ nav a {
 	color: #656565;
 	font-size: 10px;
 	display: inline-block;
+}
+
+.select-dropdown li.disabled>span, .select-dropdown li.optgroup {
+    color: rgba(0,0,0,0.3) !important;
+    background-color: transparent;
+}
+
+.dropdown-content li>a, .dropdown-content li>span {
+    font-size: 12px !important;
+    color: #656565 !important;
+    display: block;
+    line-height: 22px;
+    padding: 14px 16px;
+    font-family: 'Open Sans' !important;
+}
+
+.select-wrapper input.select-dropdown {
+	font-family: 'Open Sans' !important;
+	font-size: 12px !important;
+
+}
+.select-wrapper input.select-dropdown:focus {
+    border-bottom: 1px solid #2979ff !important;
+}
+
+/*option[value="notSet"] {
+	background-color: yellow !important;
+}*/
+
+/*[type="text"].select-dropdown:not(.quoteSet) {
+	color: #2979ff !important;
+}*/
+
+input[type=text]:not(.browser-default) {
+	font-family: 'Open Sans' !important;
+	font-size: 12px !important;
+
+}
+input:not([type]):focus:not([readonly]), input[type=text]:not(.browser-default):focus:not([readonly]), input[type=password]:not(.browser-default):focus:not([readonly]), input[type=email]:not(.browser-default):focus:not([readonly]), input[type=url]:not(.browser-default):focus:not([readonly]), input[type=time]:not(.browser-default):focus:not([readonly]), input[type=date]:not(.browser-default):focus:not([readonly]), input[type=datetime]:not(.browser-default):focus:not([readonly]), input[type=datetime-local]:not(.browser-default):focus:not([readonly]), input[type=tel]:not(.browser-default):focus:not([readonly]), input[type=number]:not(.browser-default):focus:not([readonly]), input[type=search]:not(.browser-default):focus:not([readonly]), textarea.materialize-textarea:focus:not([readonly]),input[type=text]:not(.browser-default):focus:not([readonly]) {
+	    -webkit-box-shadow: 0 1px 0 0 #2979ff !important;
+	border-bottom: 1px solid #2979ff !important;
+}
+
+input[type=text].editable-select:focus {
+    border-bottom: 1px solid #2979ff !important;
 }

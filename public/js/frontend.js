@@ -1,10 +1,3 @@
-
-
-// $(window).on('load', function() {
- 
-
-// });
-
 $(function() {
 	$('.filter').click(function(e) {
 		let week =  $(this).attr('id');
@@ -19,30 +12,22 @@ $(function() {
 		
 		return false;
 	});
+	
+		// let tf = $('.other-input-field');
+		// $('.option-other').click(function(e) {
+		// 	if (tf.hasClass('hidden')) {
+		// 		tf.addClass('visible').removeClass('hidden');
+		// 	} else {
+		// 		tf.addClass('hidden').removeClass('visible');
+		// 	}
+		// });
+
+	function validate() {
+		$('.filled-in:checked').each(function( index ) {
+			var name = $(this).parent('name');
+			console.log(name);
+			return true;
+		});
+	}
 });
-
-
-// document.addEventListener('DOMContentLoaded', function(){ 
-//     let wf =  document.querySelectorAll(".filter");
-
-// 	for (let i = 0; i < wf.length; i++) {
-// 		wf[i].addEventListener("click", function(e) {
-// 			let w = e.id;
-// 			console.log("w: " + w);
-// 			let v = document.querySelectorAll("div.sub[class*='" + w + "']");
-// 			console.log(v);
-// 			v.forEach(function(v) {
-// 				v.classList.remove("none");
-// 			});
-// 			let h = document.querySelectorAll("div.sub:not([class*='" + w + "'])");;
-// 			h.forEach(function(h) {
-// 				h.classList.add("none");
-// 			});
-// 			//console.log(h);
-
-// 		});
-// 	}
-// }, true);
-
-
 
