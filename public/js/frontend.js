@@ -12,6 +12,8 @@ $(function() {
 		
 		return false;
 	});
+
+
 	
 		// let tf = $('.other-input-field');
 		// $('.option-other').click(function(e) {
@@ -22,12 +24,6 @@ $(function() {
 		// 	}
 		// });
 
-	function validate() {
-		$('.filled-in:checked').each(function( index ) {
-			var name = $(this).parent('name');
-			console.log(name);
-			return true;
-		});
-	}
+	
 });
 

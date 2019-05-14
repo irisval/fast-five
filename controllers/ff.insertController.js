@@ -106,7 +106,6 @@ exports.createFF = function (req, res) {
 
     entries.forEach(function (e) {
         FF.findById(e, function (err, obj) {
-            console.log(obj);
             obj.used = true;
             obj.weekUsed = week;
             obj.save();

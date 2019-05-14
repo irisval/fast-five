@@ -1,50 +1,33 @@
 $(document).ready(function(){
+
+	$('.modal-trigger').click(function(e) {
+		$('.filled-in:checked').each(function( index ) {
+
+			var id = "#" + $(this).val();
+			var name = $(id).find('.name').text();
+			var quote = $(id).find('#ff option:selected').text();
+			var linkTitle = $(id).find('.sub-title').text();
+			var url = $(id).find('.sub-title').attr('href');
+
+			content = '<div style="margin-top: 20px; margin-bottom: 1px;"><b><a style="display:inline-block;" href="' + url + '">' + linkTitle + '</a></b></div>';
+			content += '<div style="margin-top: 0;"><b><p style="margin: 0; display:inline-block;">' + name + ' says:&nbsp;&nbsp;</p></b>';
+			content += '<p style="margin: 0; display:inline-block;">' + quote + '</p></div>';
+		
+			
+			$('.modal-content').append(content);
+		});
+
+	});
+	
     $('.modal').modal();
-
-
-  });
-$(document).ready(function(){
-	$('select').formSelect();
-
 
 });
 
 
+$(document).ready(function(){
+	$('select').formSelect();
+	$('.dropdown-trigger').dropdown();
 
+});
 
-// $('.editable-select').editableSelect({ filter: false }).on('select.editable-select', function (e, li) {
-//         // $('#last-selected').html(
-//         //     li.val() + '. ' + li.text()
-//         // );
-//     console.log("!");
-//     // $(e).closest('select').change();
-//     });
-
-
-
-
-// $(document).ready(function(){
-// $('.editable-select').on('select.editable-select', function (e, li) {
-//         // $('#last-selected').html(
-//         //     li.val() + '. ' + li.text()
-//         // );
-//     console.log("!");
-//     // $(e).trigger("change");
-//     $(e).closest("select").trigger("change");
-//     });
-// });
-
-
-// $('option').on('click', function(){
-// 	console.log("what the fuck")
-//     $(this).closest('form').submit();
-// });
-
-
-
-
-// f
-
-
-       
-$('.dropdown-trigger').dropdown();
+     
