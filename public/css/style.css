@@ -130,3 +130,42 @@ input:not([type]):focus:not([readonly]), input[type=text]:not(.browser-default):
 input[type=text].editable-select:focus {
     border-bottom: 1px solid #2979ff !important;
 }
+
+#ff {
+	position: absolute;
+}
+
+#bleh {
+	position: absolute;
+}
+
+div.select-wrapper {
+/*	z-index: 10;*/
+}
+input[readonly=true] {
+/*	visibility: hidden;*/
+	color: white;
+}
+
+.setQuoteForm {
+	width: 100%;
+}
+.caret {
+	z-index: 7 !important;
+}
+
+.layer-input {
+	z-index: 5 !important;
+	position: absolute;
+    width: 85% !important;
+    bottom: 94px;
+}
+.caret:hover {
+	cursor: pointer;
+}
+li.selected {
+	display: none;
+}
+ul.select-dropdown {
+	height: auto !important;
+}

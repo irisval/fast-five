@@ -34,17 +34,6 @@ app.engine('.hbs', exphbs({
 
 app.set('view engine', 'hbs');
 app.set('views', './views');
-// exphbs.registerPartial('./views/partials');
-// const hbs = require('hbs');
-// app.set('views', './views');
-// app.set('view engine', 'handlebars');
-// app.engine('handlebars', engines.handlebars);
-
-// hbs.registerHelper('splitDate', function(date) {
-//   	let d = date.replace("-","");
-//   	return d;
-// });
-
 
 
 

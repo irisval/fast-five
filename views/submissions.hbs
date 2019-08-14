@@ -53,7 +53,8 @@
          <div id="{{id}}" class="card">
             <div class="card-content white-text">
                <span>
-                  <a href="/submissions/{{name}}" class="name">{{name}}</a> 
+                  <a href="/submissions/{{name}}" class="name">
+                    {{#if used}}<i class="material-icons blue-text accent-3-text">done_all</i>{{/if}}{{name}}</a> 
                   <p class="sub-date">({{prettyDate timestamp }})</p>
                </span>
                <br>
@@ -62,16 +63,12 @@
                   <a href="{{url}}" class="sub-title">{{title}}</a>
                   <br>
                </span>
-               <!--  https://stackoverflow.com/questions/7231157/how-to-submit-form-on-change-of-dropdown-list -->
-               <!-- http://jsfiddle.net/fenderistic/6ejps/ -->
-               <!-- start select -->
-               <form name="setQuote" action="/setQuote/{{id}}" method="post" onsubmit="return false;">
-                  <select id="ff" name="quote" onchange="this.form.submit();">
-                     {{#if (hasQuote actualQuote) }}
-                     <option class="quoteSet" value="set" disabled selected>{{actualQuote}}</option>
-                     {{else}}
-                     <option value="notSet" disabled selected>Set Quote</option>
-                     {{/if}}
+               
+               <form class="setQuoteForm" name="setQuote" action="/setQuote/{{id}}" method="post">
+
+                  <select id="sel-{{id}}" name="quote">
+                      <option disabled>Change Quote</option>
+                     <option hidden></option>
                      {{#if possibleQuotes.[0]}}
                      <option value='"{{possibleQuotes.[0]}}"'>"{{possibleQuotes.[0]}}"</option>
                      {{/if}}
@@ -81,16 +78,15 @@
                      {{#if LQ}}
                      <option value='"{{LQ}}"'>"{{LQ}}"</option>
                      {{/if}}
-                     <option class="option-other" value="Other">Other (editable)</option>
+                     <option class="option-other" value="Other (editable)">Other (editable)</option>
                   </select>
-                  <div class="other-input-field hidden">
-                     <input placeholder="Add Quote" id="otherQuote" type="text" class="validate">
-                  </div>
+                  
+                     {{#if (hasQuote actualQuote) }}
+                     <input class="layer-input" id="dd-{{id}}" type="text" name="format" value="{{actualQuote}}"/>
+                     {{else}}
+                      <input class="layer-input" id="dd-{{id}}" type="text" name="format" value=""/>
+                     {{/if}}
                </form>
-               <!--  <option value="4"><textarea id="textarea1" class="materialize-textarea"></textarea>
-                  <label for="textarea1">Textarea</label></option> -->
-               <!--   <label>Materialize Select</label> --> 
-               <!-- end select -->
             </div>
             <div class="card-action">
                <p></p>

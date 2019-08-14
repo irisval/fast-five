@@ -1,0 +1,11 @@
+[ { adam_title: '\n                  <a href="#">\n                    <u>TAKE A LOOK AT THIS YEAR’S NATIONAL GINGERBREAD HOUSE COMPETITION WINNERS</u></a>\n                  ',
+    adam_caption: 'Looks like a sweet victory.',
+    adam_link_img: '' } ]
+{ adam_title: '\n                  <a href="#">\n                    <u>TAKE A LOOK AT THIS YEAR’S NATIONAL GINGERBREAD HOUSE COMPETITION WINNERS</u></a>\n                  ',
+  adam_caption: 'Looks like a sweet victory.',
+  adam_link_img: '' }
+{
+    "adam_title": "\n                  <a href=\"#\">\n                    <u>TAKE A LOOK AT THIS YEAR’S NATIONAL GINGERBREAD HOUSE COMPETITION WINNERS</u></a>\n                  ",
+    "adam_caption": "Looks like a sweet victory.",
+    "adam_link_img": ""
+}]

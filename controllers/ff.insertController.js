@@ -3,7 +3,8 @@ const FF = require('../models/ff.ff');
 const User = require('../models/ff.user');
 const ChosenFF = require('../models/ff.chosen')
 let request = require('request');
-
+const Mailchimp = require('mailchimp-api-v3');
+const mailchimp = new Mailchimp(process.env.MAILCHIMP_KEY);
 // ^ breaks if you use const
 
 exports.test = function (req, res) {
@@ -68,9 +69,10 @@ exports.insert = function (req, res) {
 
 
 exports.setQuote = function (req, res) {
-    let q = req.body.quote;
-    let entryId = req.params.id;
 
+    let q = req.body.format;
+    let entryId = req.params.id;
+  console.log(q);
     FF.findById(entryId, function (err, e) {
         e.actualQuote = q;
         e.save();
@@ -110,10 +112,72 @@ exports.createFF = function (req, res) {
             obj.weekUsed = week;
             obj.save();
         })
-
     })
+
+    // mailchimp.get('/templates/159753/default-content', {
+
+    // }).then(function(result) {
+    //     // console.log(result);
+    //     console.log(result.sections.repeat_1);
+    //     console.log(result.sections.repeat_1[0]);
+    //     console.log(JSON.stringify(result.sections.repeat_1[0], null, 4));
+    //     res.redirect('/fastfives');
+    // }).catch(function(err) {
+    //     console.log(err);
+    // });
+
+    mailchimp.post('/campaigns/', {
+        type: 'regular',
+        recipients: {list_id: process.env.AUDIENCE_ID},
+        settings: {
+            subject_line: 'v v v tired',
+            preview_text: 'hello test',
+            from_name: 'iris',
+            reply_to: 'yolo@wearecmyk.com',
+            to_name: 'uh',
+            template_id: 159753
+        }
+    }).then(function(result) {
+        console.log(result.id);
+        var campaignId = result.id;
+        var webId = result.web_id;
+        mailchimp.put('/campaigns/' + campaignId + '/content', {
+      
+            template: {
+                id: 159753,
+                sections: {
+                    "testcontent": "iris",
+                    "victory": "VICTORY!!!!",
+                    "adam_title": "awowowowwwww",
+                    "adam_caption": "adam",
+                    "adam_link_img": "https://www.google.com/",
+                    "a2_title": "bwowowowwwww",
+                    "a2_caption": "a2",
+                    "a2_link_img": "https://www.google.com/",
+                    "kevin_title": "cwowowowwwww",
+                    "kevin_caption": "kevin",
+                    "kevin_link_img": "https://www.google.com/",
+                    "chris_title": "dwowowowwwww",
+                    "chris_caption": "chris",
+                    "chris_link_img": "https://www.google.com/",
+                    "alexes_title": "ewowowowwwww",
+                    "alexes_caption": "alexes",
+                    "alexes_link_img": "https://www.google.com/",
+                }
+            }
+
+        });
+        console.log(result);
+        res.redirect('/fastfives');
+    }).catch(function(err) {
+        console.log(err);
+    });
+
+
+   
+   
     // FF.find({url: {$in: entryUrls}}, function(err, entries) {
-    res.redirect('/fastfives');
+    
 }
 
 

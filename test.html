@@ -1,0 +1,822 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800,300">
+    
+  <style type="text/css">
+		body{
+			background-color:black;
+			color:white;
+			font-family:"Open Sans",sans-serif;
+			margin:0;
+			padding-top:2.2em;
+			padding-bottom:2.2em;
+		}
+		p{
+			line-height:1.4em;
+			font-size:13.5px !important;
+			color:white;
+		}
+		.main-container{
+			width:100%;
+			max-width:1280px;
+			margin:60px auto 0;
+		}
+		#header{
+			margin:80px auto -30px;
+		}
+		.center-text{
+			text-align:center;
+		}
+		h2{
+			font-family:"Open Sans";
+			font-weight:800;
+			line-height:1.6em;
+			margin-top:0;
+			font-size:1.5em;
+		}
+		h2 a{
+			font-family:"Open Sans",sans-serif;
+			color:white;
+			font-size:inherit;
+			line-height:inherit;
+			font-weight:inherit;
+			text-transform:uppercase;
+		}
+		div h2{
+			font-family:"Open Sans",sans-serif;
+			display:inline-block;
+			margin-bottom:15px;
+			text-decoration:underline;
+		}
+		h4{
+			color:white;
+			line-height:1em;
+		}
+		h4 a{
+			font-family:"Open Sans",sans-serif;
+			text-decoration:none;
+			color:gray;
+			font-size:1.3em;
+			line-height:1em;
+		}
+		p a{
+			color:white;
+		}
+		u{
+			font-family:"Open Sans",sans-serif;
+			font-weight:800;
+		}
+		hr{
+			background:linear-gradient(to right,#00afec,#ea148c,#fff02a);
+			height:2px;
+			margin:0;
+			border:0;
+		}
+		#video img{
+			width:100%;
+			border:2px solid white;
+		}
+		#fbf{
+			margin-top:0;
+		}
+	@media only screen and (max-width: 760px),(min-device-width: 768px) and (max-device-width: 1024px){
+		.main:not(.header){
+			width:80% !important;
+		}
+
+}	@media only screen and (max-width: 760px),(min-device-width: 768px) and (max-device-width: 1024px){
+		.header{
+			width:100% !important;
+		}
+
+}	@media only screen and (max-width: 760px),(min-device-width: 768px) and (max-device-width: 1024px){
+		.main:first-child{
+			width:100% !important;
+		}
+
+}	@media only screen and (max-width: 760px),(min-device-width: 768px) and (max-device-width: 1024px){
+		nav td{
+			display:inline-block !important;
+		}
+
+}	@media only screen and (max-width: 1400px),(min-device-width: 768x) and (max-device-width: 1400px){
+		.content-block td{
+			display:block !important;
+		}
+
+}	@media only screen and (max-width: 1400px),(min-device-width: 768x) and (max-device-width: 1400px){
+		.link-img{
+			display:block;
+			margin:auto;
+			text-align:center;
+			width:100%;
+		}
+
+}	@media only screen and (max-width: 760px),(min-device-width: 768px) and (max-device-width: 1024px){
+		.last-week-content-block{
+			width:85% !important;
+		}
+
+}	@media only screen and (max-width: 760px),(min-device-width: 768px) and (max-device-width: 1024px){
+		h2{
+			font-size:1.5em !important;
+		}
+
+}	@media only screen and (max-width: 760px),(min-device-width: 768px) and (max-device-width: 1024px){
+		.mobile-full-width{
+			width:100% !important;
+		}
+
+}	@media only screen and (max-width: 760px),(min-device-width: 768px) and (max-device-width: 1024px){
+		.mobile-no-spacing{
+			padding:0 !important;
+			margin:0 !important;
+		}
+
+}	@media only screen and (max-width: 760px),(min-device-width: 768px) and (max-device-width: 1024px){
+		.this-week{
+			padding-bottom:40px !important;
+		}
+
+}	@media only screen and (max-width: 760px),(min-device-width: 768px) and (max-device-width: 1024px){
+		.main-container{
+			margin:10px auto !important;
+		}
+
+}	@media only screen and (max-width: 760px),(min-device-width: 768px) and (max-device-width: 1024px){
+		.last-week-caption{
+			padding:0 !important;
+		}
+
+}	@media only screen and (max-width: 760px),(min-device-width: 768px) and (max-device-width: 1024px){
+		.last-week-full{
+			width:100% !important;
+		}
+
+}	@media only screen and (max-width: 760px),(min-device-width: 768px) and (max-device-width: 1024px){
+		h2{
+			font-size:1.1rem !important;
+		}
+
+}	@media only screen and (max-width: 760px),(min-device-width: 768px) and (max-device-width: 1024px){
+		h4 a{
+			font-size:12px !important;
+		}
+
+}	@media only screen and (max-width: 760px),(min-device-width: 768px) and (max-device-width: 1024px){
+		p{
+			font-size:13.5px !important;
+		}
+
+}	@media only screen and (max-width: 760px),(min-device-width: 768px) and (max-device-width: 1024px){
+		p a{
+			font-size:13.5px !important;
+		}
+
+}	@media only screen and (max-width: 760px),(min-device-width: 768px) and (max-device-width: 1024px){
+		.trophy{
+			margin-left:-8px !important;
+			margin-top:4px !important;
+			width:14% !important;
+		}
+
+}	@media only screen and (max-width: 760px),(min-device-width: 768px) and (max-device-width: 1024px){
+		.google-img{
+			transform:none !important;
+		}
+
+}	@media only screen and (max-width: 760px),(min-device-width: 768px) and (max-device-width: 1024px){
+		.fbf-img{
+			margin:35px auto !important;
+		}
+
+}	@media only screen and (max-width: 760px),(min-device-width: 768px) and (max-device-width: 1024px){
+		.margin{
+			width:30px !important;
+		}
+
+}</style></head>
+  <body>
+    <table id="header" cellspacing="0" cellpadding="0">
+      <tr>
+        <!--<td class="margin" width="140" colspan="1">
+      </td>-->
+        <td class="main header" width="1130" colspan="4">
+          <!-- header -->
+          <table width="100%" cellspacing="0" cellpadding="0">
+            <!-- cmyk and date -->
+            <tr style="margin-bottom:20px;">
+              <td width="50%" colspan="2">
+                <img src="https://gallery.mailchimp.com/ca8e8d766cc348c7051fec7cf/images/72750d6d-ab07-4253-bac2-8b36c15405f2.png" alt="" width="100%">
+              </td>
+              <td style="padding:0px;padding-bottom:50px;padding-right:10px;text-align:right;" colspan="2">
+                <p id="date" style="margin-bottom:5px;margin-top:0px;padding-top:0px;" mc:edit="date">11/26/2018</p>
+                <h4 style="margin-top:0px;">FAST FIVE</h4>
+              </td>
+            </tr>
+            <!-- end cmyk and date -->
+            <!-- header links -->
+            <!--<tr class="nav mobile-no-spacing" style="margin-top:50px;">
+            <td class="mobile-no-spacing" colspan="1" style="text-align:center;padding-top:50px;padding-bottom:50px;" width="25%">
+              <h4 style="color:#808080;" mc:edit="wearecmykh4">
+                <a href="http://wearecmyk.com">WE ARE CMYK</a>
+              </h4>
+            </td>
+            <td class="mobile-no-spacing" colspan="1" style="text-align:center;padding-top:50px;padding-bottom:50px;" width="25%">
+              <h4 style="color:#808080;" mc:edit="flashbackfridayh4">
+                <a href="#">FLASHBACK FRIDAY</a>
+              </h4>
+            </td>
+            <td class="mobile-no-spacing" colspan="1" style="text-align:center;padding-top:50px;padding-bottom:50px;" width="25%">
+              <h4 style="color:#808080;" mc:edit="rantsh4">
+                <a href="#">RANTS</a>
+              </h4>
+            </td>
+            <td class="mobile-no-spacing" colspan="1" style="text-align:center;padding-top:50px;padding-bottom:50px;" width="250">
+              <h4 style="color:#808080;" mc:edit="contactush4">
+                <a href="#">CONTACT US</a>
+              </h4>
+            </td>
+          </tr>-->
+            <!-- end header links -->
+          </table>
+          <!-- end header -->
+        </td>
+        <td class="margin" width="140" colspan="1"></td>
+      </tr>
+    </table>
+    <table cellspacing="0" cellpadding="0">
+      <tr>
+        <td class="margin" width="140" colspan="1">
+        </td>
+        <td class="main header" width="1000" colspan="4">
+          <!-- header -->
+          <table width="100%" cellspacing="0" cellpadding="0">
+            <!-- header links -->
+            <tr class="nav mobile-no-spacing" style="margin-top:100px;">
+              <td class="mobile-no-spacing" colspan="1" style="text-align:center;padding-top:50px;padding-bottom:50px;" width="25%">
+                <h4 style="color:#808080;" mc:edit="mustache">
+                  <a href="http://wearecmyk.com">{{testcontent}}</a>
+                </h4>
+              </td>
+              <td class="mobile-no-spacing" colspan="1" style="text-align:center;padding-top:50px;padding-bottom:50px;" width="25%">
+                <h4 style="color:#808080;" mc:edit="flashbackfridayh4">
+                  <a href="#">FLASHBACK FRIDAY</a>
+                </h4>
+              </td>
+              <td class="mobile-no-spacing" colspan="1" style="text-align:center;padding-top:50px;padding-bottom:50px;" width="25%">
+                <h4 style="color:#808080;" mc:edit="rantsh4">
+                  <a href="#">RANTS</a>
+                </h4>
+              </td>
+              <td class="mobile-no-spacing" colspan="1" style="text-align:center;padding-top:50px;padding-bottom:50px;" width="250">
+                <h4 style="color:#808080;padding-right:10px;" mc:edit="contactush4">
+                  <a href="#">CONTACT US</a>
+                </h4>
+              </td>
+            </tr>
+            <!-- end header links -->
+          </table>
+          <!-- end header -->
+        </td>
+        <td class="margin" width="140" colspan="1"></td>
+      </tr>
+    </table>
+    <hr>
+    <!-- last week's winners -->
+    <table class="main-container">
+      <tr>
+        <td class="margin" width="240" colspan="1"></td>
+        <td class="main last-week-content-block">
+          <div>
+            <img class="trophy" src="https://gallery.mailchimp.com/ca8e8d766cc348c7051fec7cf/images/d75e9455-1294-43b9-8e08-368bec4aa4a7.gif" width="10%" alt="trophy.gif" style="display: block;margin:auto;text-align:center;"><img src="https://gallery.mailchimp.com/ca8e8d766cc348c7051fec7cf/images/fba8a8c0-bfb2-4a59-a1d0-91075b2d9689.png" width="100%" style="" alt="fba8a8c0-bfb2-4a59-a1d0-91075b2d9689.png">
+          </div>
+          <img class="last-week-full" src="https://gallery.mailchimp.com/ca8e8d766cc348c7051fec7cf/images/c2b85009-d89a-4eb3-8c35-043bec1f9732.png" style="width: 350px; border: 3px solid white; display: block; margin:30px auto;" alt="charlie.png" mc:edit="lastweekswinnersgif">
+          <p class="last-week-caption" style="text-align:center;" mc:edit="victory">
+            'Tis officially the season, and Alexes got an early Christmas present! With almost half the clicks, Alexes destroys the competition with her <a href="#">Addams Family dancing video.</a> Yay, Alexes!
+          </p>
+          <img width="100%" src="https://gallery.mailchimp.com/ca8e8d766cc348c7051fec7cf/images/4577caad-9c46-4ea3-9c6f-1e35f2b20b0e.png" style="display: block; margin: 40px auto 0px auto;" alt="4577caad-9c46-4ea3-9c6f-1e35f2b20b0e.png">
+        </td>
+        <td class="margin" width="240" colspan="1"></td>
+      </tr>
+    </table>
+    <!-- end last week's winners -->
+    <!-- individual link - adam -->
+    <table class="main-container" mc:repeatable="agent_link" mc:variant="Adam">
+      <tr>
+        <td class="margin" width="140" colspan="1"></td>
+        <td class="main content-block" colspan="4">
+          <table class="this-week" width="100%" style="padding-bottom:80px;">
+            <tr>
+              <!-- person -->
+              <td class="mobile-full-width" width="50%" colspan="1">
+                <!-- gif -->
+                <img src="https://gallery.mailchimp.com/ca8e8d766cc348c7051fec7cf/images/a50f3b65-2091-417f-b0e3-7b26ea5cd0dc.gif" width="70" style="max-width:70px" alt="">
+                <!-- person name --><img src="https://gallery.mailchimp.com/ca8e8d766cc348c7051fec7cf/images/4c9e0a3f-e59c-431c-9ed6-4d0d22594790.png" height="25" style="padding: 0px 5px 20px 10px;" alt="">
+              </td>
+              <!-- end person -->
+            </tr>
+            <tr>
+              <!-- title and quote -->
+              <td style="padding-top:0px;">
+                <h2 mc:edit="adam_title">
+                  <a href="#">
+                    <u>TAKE A LOOK AT THIS YEAR’S NATIONAL GINGERBREAD HOUSE COMPETITION WINNERS</u></a>
+                  </h2>
+                  <p mc:edit="adam_caption">Looks like a sweet victory.</p>
+                </td>
+                <!-- end title and quote -->
+                <!-- picture -->
+                <td class="link-img">
+                  <img src="https://gallery.mailchimp.com/ca8e8d766cc348c7051fec7cf/images/0f227cf4-8301-4a73-a784-cfc182695c90.jpg" style="border: 2px solid white; width:100%" alt="" mc:edit="adam_link_img">
+                </td>
+                <!-- end picture -->
+              </tr>
+            </table>
+            <hr>
+          </td>
+          <td class="margin" width="140" colspan="1"></td>
+        </tr>
+      </table>
+      <!-- end individual link -->
+      <!-- individual link - a2 -->
+      <table class="main-container" mc:repeatable="agent_link" mc:variant="A2">
+        <tr>
+          <td class="margin" width="140" colspan="1"></td>
+          <td class="main content-block" colspan="4">
+            <table class="this-week" width="100%" style="padding-bottom:80px;">
+              <tr>
+                <!-- person -->
+                <td class="mobile-full-width" width="50%" colspan="1">
+                  <!-- gif -->
+                  <img src="https://gallery.mailchimp.com/ca8e8d766cc348c7051fec7cf/images/f1aa3f1d-5ec2-4b20-8209-f7a377c7fd6a.gif" width="70" style="max-width:70px" alt="">
+                  <!-- person name --><img src="https://gallery.mailchimp.com/ca8e8d766cc348c7051fec7cf/images/f1b99563-2bd0-4478-8ea1-81df1458b972.png" height="25" style="padding: 0px 5px 20px 10px;" alt="">
+                </td>
+                <!-- end person -->
+              </tr>
+              <tr>
+                <!-- title and quote -->
+                <td style="padding-top:0px;">
+                  <h2 mc:edit="a2_title">
+                    <a href="#">
+                      <u>TAKE A LOOK AT THIS YEAR’S NATIONAL GINGERBREAD HOUSE COMPETITION WINNERS</u></a>
+                    </h2>
+                    <p mc:edit="a2_caption">Looks like a sweet victory.</p>
+                  </td>
+                  <!-- end title and quote -->
+                  <!-- picture -->
+                  <td class="link-img">
+                    <img src="https://gallery.mailchimp.com/ca8e8d766cc348c7051fec7cf/images/0f227cf4-8301-4a73-a784-cfc182695c90.jpg" style="border: 2px solid white; width:100%;" alt="" mc:edit="a2_link_img">
+                  </td>
+                  <!-- end picture -->
+                </tr>
+              </table>
+              <hr>
+            </td>
+            <td class="margin" width="140" colspan="1"></td>
+          </tr>
+        </table>
+        <!-- end individual link -->
+        <!-- individual link - alexes -->
+        <table class="main-container" mc:repeatable="agent_link" mc:variant="Alexes">
+          <tr>
+            <td class="margin" width="140" colspan="1"></td>
+            <td class="main content-block" colspan="4">
+              <table class="this-week" width="100%" style="padding-bottom:80px;">
+                <tr>
+                  <!-- person -->
+                  <td class="mobile-full-width" width="50%" colspan="1">
+                    <!-- gif -->
+                    <img src="https://gallery.mailchimp.com/ca8e8d766cc348c7051fec7cf/images/abcceb25-646f-40d8-9f4d-3ed156a16f6a.gif" width="70" style="max-width:70px" alt="">
+                    <!-- person name --><img src="https://gallery.mailchimp.com/ca8e8d766cc348c7051fec7cf/images/6cdb251e-1212-4815-8912-3534b8572206.png" height="25" style="padding: 0px 5px 20px 10px;" alt="">
+                  </td>
+                  <!-- end person -->
+                </tr>
+                <tr>
+                  <!-- title and quote -->
+                  <td style="padding-top:0px;">
+                    <h2 mc:edit="alexes_title">
+                      <a href="#">
+                        <u>TAKE A LOOK AT THIS YEAR’S NATIONAL GINGERBREAD HOUSE COMPETITION WINNERS</u></a>
+                      </h2>
+                      <p mc:edit="alexes_caption">Looks like a sweet victory.</p>
+                    </td>
+                    <!-- end title and quote -->
+                    <!-- picture -->
+                    <td class="link-img">
+                      <img src="https://gallery.mailchimp.com/ca8e8d766cc348c7051fec7cf/images/0f227cf4-8301-4a73-a784-cfc182695c90.jpg" style="border: 2px solid white; width:100%;" alt="" mc:edit="alexes_link_img">
+                    </td>
+                    <!-- end picture -->
+                  </tr>
+                </table>
+                <hr>
+              </td>
+              <td class="margin" width="140" colspan="1"></td>
+            </tr>
+          </table>
+          <!-- end individual link -->
+          <!-- individual link - anthony -->
+          <table class="main-container" mc:repeatable="agent_link" mc:variant="Anthony">
+            <tr>
+              <td class="margin" width="140" colspan="1"></td>
+              <td class="main content-block" colspan="4">
+                <table class="this-week" width="100%" style="padding-bottom:80px;">
+                  <tr>
+                    <!-- person -->
+                    <td class="mobile-full-width" width="50%" colspan="1">
+                      <!-- gif -->
+                      <img src="https://gallery.mailchimp.com/ca8e8d766cc348c7051fec7cf/images/050c2b56-eefd-4c16-95b7-37366f545d67.gif" width="70" style="max-width:70px" alt="">
+                      <!-- person name --><img src="https://gallery.mailchimp.com/ca8e8d766cc348c7051fec7cf/images/328d6a11-f086-48d6-85de-7643293af512.png" height="25" style="padding: 0px 5px 20px 10px;" alt="">
+                    </td>
+                    <!-- end person -->
+                  </tr>
+                  <tr>
+                    <!-- title and quote -->
+                    <td style="padding-top:0px;">
+                      <h2 mc:edit="anthony_title">
+                        <a href="#">
+                          <u>TAKE A LOOK AT THIS YEAR’S NATIONAL GINGERBREAD HOUSE COMPETITION WINNERS</u></a>
+                        </h2>
+                        <p mc:edit="anthony_caption">Looks like a sweet victory.</p>
+                      </td>
+                      <!-- end title and quote -->
+                      <!-- picture -->
+                      <td class="link-img">
+                        <img src="https://gallery.mailchimp.com/ca8e8d766cc348c7051fec7cf/images/0f227cf4-8301-4a73-a784-cfc182695c90.jpg" style="border: 2px solid white; width:100%;" alt="" mc:edit="anthony_link_img">
+                      </td>
+                      <!-- end picture -->
+                    </tr>
+                  </table>
+                  <hr>
+                </td>
+                <td class="margin" width="140" colspan="1"></td>
+              </tr>
+            </table>
+            <!-- end individual link -->
+            <!-- individual link - chris -->
+            <table class="main-container" mc:repeatable="agent_link" mc:variant="Chris">
+              <tr>
+                <td class="margin" width="140" colspan="1"></td>
+                <td class="main content-block" colspan="4">
+                  <table class="this-week" width="100%" style="padding-bottom:80px;">
+                    <tr>
+                      <!-- person -->
+                      <td class="mobile-full-width" width="50%" colspan="1">
+                        <!-- gif -->
+                        <img src="https://gallery.mailchimp.com/ca8e8d766cc348c7051fec7cf/images/dd2af0b6-9a69-444e-a388-5b334797f12c.gif" width="70" style="max-width:70px" alt="">
+                        <!-- person name --><img src="https://gallery.mailchimp.com/ca8e8d766cc348c7051fec7cf/images/038a1e95-a2ee-4404-99c3-2793ccb715e1.png" height="25" style="padding: 0px 5px 20px 10px;" alt="">
+                      </td>
+                      <!-- end person -->
+                    </tr>
+                    <tr>
+                      <!-- title and quote -->
+                      <td style="padding-top:0px;">
+                        <h2 mc:edit="chris_title">
+                          <a href="#">
+                            <u>TAKE A LOOK AT THIS YEAR’S NATIONAL GINGERBREAD HOUSE COMPETITION WINNERS</u></a>
+                          </h2>
+                          <p mc:edit="chris_caption">Looks like a sweet victory.</p>
+                        </td>
+                        <!-- end title and quote -->
+                        <!-- picture -->
+                        <td class="link-img">
+                          <img src="https://gallery.mailchimp.com/ca8e8d766cc348c7051fec7cf/images/0f227cf4-8301-4a73-a784-cfc182695c90.jpg" style="border: 2px solid white; width:100%;" alt="" mc:edit="chris_link_img">
+                        </td>
+                        <!-- end picture -->
+                      </tr>
+                    </table>
+                    <hr>
+                  </td>
+                  <td class="margin" width="140" colspan="1"></td>
+                </tr>
+              </table>
+              <!-- end individual link -->
+              <!-- individual link - josh -->
+              <table class="main-container" mc:repeatable="agent_link" mc:variant="Josh">
+                <tr>
+                  <td class="margin" width="140" colspan="1"></td>
+                  <td class="main content-block" colspan="4">
+                    <table class="this-week" width="100%" style="padding-bottom:80px;">
+                      <tr>
+                        <!-- person -->
+                        <td class="mobile-full-width" width="50%" colspan="1">
+                          <!-- gif -->
+                          <img src="https://gallery.mailchimp.com/ca8e8d766cc348c7051fec7cf/images/acf72a47-d7ca-4cad-8705-1fe170959864.gif" width="70" style="max-width:70px" alt="">
+                          <!-- person name --><img src="https://gallery.mailchimp.com/ca8e8d766cc348c7051fec7cf/images/eb3e12be-6eb5-4fbe-8b41-c29e506d43e7.png" height="25" style="padding: 0px 5px 20px 10px;" alt="">
+                        </td>
+                        <!-- end person -->
+                      </tr>
+                      <tr>
+                        <!-- title and quote -->
+                        <td style="padding-top:0px;">
+                          <h2 mc:edit="josh_title">
+                            <a href="#">
+                              <u>TAKE A LOOK AT THIS YEAR’S NATIONAL GINGERBREAD HOUSE COMPETITION WINNERS</u></a>
+                            </h2>
+                            <p mc:edit="josh_caption">Looks like a sweet victory.</p>
+                          </td>
+                          <!-- end title and quote -->
+                          <!-- picture -->
+                          <td class="link-img">
+                            <img src="https://gallery.mailchimp.com/ca8e8d766cc348c7051fec7cf/images/0f227cf4-8301-4a73-a784-cfc182695c90.jpg" style="border: 2px solid white; width:100%;" alt="" mc:edit="josh_link_img">
+                          </td>
+                          <!-- end picture -->
+                        </tr>
+                      </table>
+                      <hr>
+                    </td>
+                    <td class="margin" width="140" colspan="1"></td>
+                  </tr>
+                </table>
+                <!-- end individual link -->
+                <!-- individual link - kevin -->
+                <table class="main-container" mc:repeatable="agent_link" mc:variant="Kevin">
+                  <tr>
+                    <td class="margin" width="140" colspan="1"></td>
+                    <td class="main content-block" colspan="4">
+                      <table class="this-week" width="100%" style="padding-bottom:80px;">
+                        <tr>
+                          <!-- person -->
+                          <td class="mobile-full-width" width="50%" colspan="1">
+                            <!-- gif -->
+                            <img src="https://gallery.mailchimp.com/ca8e8d766cc348c7051fec7cf/images/9ee73993-4563-4483-95e5-ff46ed53e2db.gif" width="70" style="max-width:70px" alt="">
+                            <!-- person name --><img src="https://gallery.mailchimp.com/ca8e8d766cc348c7051fec7cf/images/f127277f-386c-480c-b74b-ef75567bb82f.png" height="25" style="padding: 0px 5px 20px 10px;" alt="">
+                          </td>
+                          <!-- end person -->
+                        </tr>
+                        <tr>
+                          <!-- title and quote -->
+                          <td style="padding-top:0px;">
+                            <h2 mc:edit="kevin_title">
+                              <a href="#">
+                                <u>TAKE A LOOK AT THIS YEAR’S NATIONAL GINGERBREAD HOUSE COMPETITION WINNERS</u></a>
+                              </h2>
+                              <p mc:edit="kevin_caption">Looks like a sweet victory.</p>
+                            </td>
+                            <!-- end title and quote -->
+                            <!-- picture -->
+                            <td class="link-img">
+                              <img src="https://gallery.mailchimp.com/ca8e8d766cc348c7051fec7cf/images/0f227cf4-8301-4a73-a784-cfc182695c90.jpg" style="border: 2px solid white; width:100%;" alt="" mc:edit="kevin_link_img">
+                            </td>
+                            <!-- end picture -->
+                          </tr>
+                        </table>
+                        <hr>
+                      </td>
+                      <td class="margin" width="140" colspan="1"></td>
+                    </tr>
+                  </table>
+                  <!-- end individual link -->
+                  <!-- individual link - maya -->
+                  <table class="main-container" mc:repeatable="agent_link" mc:variant="Maya">
+                    <tr>
+                      <td class="margin" width="140" colspan="1"></td>
+                      <td class="main content-block" colspan="4">
+                        <table class="this-week" width="100%" style="padding-bottom:80px;">
+                          <tr>
+                            <!-- person -->
+                            <td class="mobile-full-width" width="50%" colspan="1">
+                              <!-- gif -->
+                              <img src="https://gallery.mailchimp.com/ca8e8d766cc348c7051fec7cf/images/5cb96eaf-45b4-4c6f-befc-0111629ee848.gif" width="70" style="max-width:70px" alt="">
+                              <!-- person name --><img src="https://gallery.mailchimp.com/ca8e8d766cc348c7051fec7cf/images/e837fa08-ea4a-4eaf-bcf9-96a8f41bbe07.png" height="25" style="padding: 0px 5px 20px 10px;" alt="">
+                            </td>
+                            <!-- end person -->
+                          </tr>
+                          <tr>
+                            <!-- title and quote -->
+                            <td style="padding-top:0px;">
+                              <h2 mc:edit="maya_title">
+                                <a href="#">
+                                  <u>TAKE A LOOK AT THIS YEAR’S NATIONAL GINGERBREAD HOUSE COMPETITION WINNERS</u></a>
+                                </h2>
+                                <p mc:edit="maya_caption">Looks like a sweet victory.</p>
+                              </td>
+                              <!-- end title and quote -->
+                              <!-- picture -->
+                              <td class="link-img">
+                                <img src="https://gallery.mailchimp.com/ca8e8d766cc348c7051fec7cf/images/0f227cf4-8301-4a73-a784-cfc182695c90.jpg" style="border: 2px solid white; width:100%;" alt="" mc:edit="maya_link_img">
+                              </td>
+                              <!-- end picture -->
+                            </tr>
+                          </table>
+                          <hr>
+                        </td>
+                        <td class="margin" width="140" colspan="1"></td>
+                      </tr>
+                    </table>
+                    <!-- end individual link -->
+                    <!-- individual link - pavaris -->
+                    <table class="main-container" mc:repeatable="agent_link" mc:variant="Pavaris">
+                      <tr>
+                        <td class="margin" width="140" colspan="1"></td>
+                        <td class="main content-block" colspan="4">
+                          <table class="this-week" width="100%" style="padding-bottom:80px;">
+                            <tr>
+                              <!-- person -->
+                              <td class="mobile-full-width" width="50%" colspan="1">
+                                <!-- gif -->
+                                <img src="https://gallery.mailchimp.com/ca8e8d766cc348c7051fec7cf/images/1b188015-9c0b-4bf9-8e50-408269761d25.gif" width="70" style="max-width:70px" alt="">
+                                <!-- person name --><img src="https://gallery.mailchimp.com/ca8e8d766cc348c7051fec7cf/images/6398afa1-fd2d-4014-bc52-47b2da31d284.png" height="25" style="padding: 0px 5px 20px 10px;" alt="">
+                              </td>
+                              <!-- end person -->
+                            </tr>
+                            <tr>
+                              <!-- title and quote -->
+                              <td style="padding-top:0px;">
+                                <h2 mc:edit="pavaris_title">
+                                  <a href="#">
+                                    <u>TAKE A LOOK AT THIS YEAR’S NATIONAL GINGERBREAD HOUSE COMPETITION WINNERS</u></a>
+                                  </h2>
+                                  <p mc:edit="pavaris_caption">Looks like a sweet victory.</p>
+                                </td>
+                                <!-- end title and quote -->
+                                <!-- picture -->
+                                <td class="link-img">
+                                  <img src="https://gallery.mailchimp.com/ca8e8d766cc348c7051fec7cf/images/0f227cf4-8301-4a73-a784-cfc182695c90.jpg" style="border: 2px solid white; width:100%;" alt="" mc:edit="pavaris_link_img">
+                                </td>
+                                <!-- end picture -->
+                              </tr>
+                            </table>
+                            <hr>
+                          </td>
+                          <td class="margin" width="140" colspan="1"></td>
+                        </tr>
+                      </table>
+                      <!-- end individual link -->
+                      <!-- individual link - Iris-->
+                      <table class="main-container" mc:repeatable="agent_link" mc:variant="Iris">
+                        <tr>
+                          <td class="margin" width="140" colspan="1"></td>
+                          <td class="main content-block" colspan="4">
+                            <table class="this-week" width="100%" style="padding-bottom:80px;">
+                              <tr>
+                                <!-- person -->
+                                <td class="mobile-full-width" width="50%" colspan="1">
+                                  <!-- gif -->
+                                  <img src="https://gallery.mailchimp.com/ca8e8d766cc348c7051fec7cf/images/7e02eb1b-db85-47ff-9176-67d03dd11bf0.gif" width="70" style="max-width:70px" alt="">
+                                  <!-- person name --><img src="https://gallery.mailchimp.com/ca8e8d766cc348c7051fec7cf/images/486cf9f9-bb7d-4edb-99a1-142349a34c11.png" height="25" style="padding: 0px 5px 20px 10px;" alt="">
+                                </td>
+                                <!-- end person -->
+                              </tr>
+                              <tr>
+                                <!-- title and quote -->
+                                <td style="padding-top:0px;">
+                                  <h2 mc:edit="iris_title">
+                                    <a href="#">
+                                      <u>TAKE A LOOK AT THIS YEAR’S NATIONAL GINGERBREAD HOUSE COMPETITION WINNERS</u></a>
+                                    </h2>
+                                    <p mc:edit="iris_caption">Looks like a sweet victory.</p>
+                                  </td>
+                                  <!-- end title and quote -->
+                                  <!-- picture -->
+                                  <td class="link-img">
+                                    <img src="https://gallery.mailchimp.com/ca8e8d766cc348c7051fec7cf/images/0f227cf4-8301-4a73-a784-cfc182695c90.jpg" style="border: 2px solid white; width:100%;" alt="" mc:edit="iris_link_img">
+                                  </td>
+                                  <!-- end picture -->
+                                </tr>
+                              </table>
+                              <hr>
+                            </td>
+                            <td class="margin" width="140" colspan="1"></td>
+                          </tr>
+                        </table>
+                        <!-- end individual link -->
+                        <!-- individual link - Elisa-->
+                        <table class="main-container" mc:repeatable="agent_link" mc:variant="Elisa">
+                          <tr>
+                            <td class="margin" width="140" colspan="1"></td>
+                            <td class="main content-block" colspan="4">
+                              <table class="this-week" width="100%" style="padding-bottom:80px;">
+                                <tr>
+                                  <!-- person -->
+                                  <td class="mobile-full-width" width="50%" colspan="1">
+                                    <!-- gif -->
+                                    <img src="https://gallery.mailchimp.com/ca8e8d766cc348c7051fec7cf/images/23902570-f5fb-48fe-97cc-316c14d73754.gif" width="70" style="max-width:70px" alt="">
+                                    <!-- person name --><img src="https://gallery.mailchimp.com/ca8e8d766cc348c7051fec7cf/images/486cf9f9-bb7d-4edb-99a1-142349a34c11.png" height="25" style="padding: 0px 5px 20px 10px;" alt="">
+                                  </td>
+                                  <!-- end person -->
+                                </tr>
+                                <tr>
+                                  <!-- title and quote -->
+                                  <td style="padding-top:0px;">
+                                    <h2 mc:edit="elisa_title">
+                                      <a href="#">
+                                        <u>TAKE A LOOK AT THIS YEAR’S NATIONAL GINGERBREAD HOUSE COMPETITION WINNERS</u></a>
+                                      </h2>
+                                      <p mc:edit="elisa_caption">Looks like a sweet victory.</p>
+                                    </td>
+                                    <!-- end title and quote -->
+                                    <!-- picture -->
+                                    <td class="link-img">
+                                      <img src="https://gallery.mailchimp.com/ca8e8d766cc348c7051fec7cf/images/0f227cf4-8301-4a73-a784-cfc182695c90.jpg" style="border: 2px solid white; width:100%;" alt="" mc:edit="elisa_link_img">
+                                    </td>
+                                    <!-- end picture -->
+                                  </tr>
+                                </table>
+                                <hr>
+                              </td>
+                              <td class="margin" width="140" colspan="1"></td>
+                            </tr>
+                          </table>
+                          <!-- end individual link -->
+                          <!-- individual link -->
+                          <table class="main-container" mc:repeatable="agent_link" mc:variant="Guest">
+                            <tr>
+                              <td class="margin" width="140" colspan="1"></td>
+                              <td class="main content-block" colspan="4">
+                                <table class="this-week" width="100%" style="padding-bottom:80px;">
+                                  <tr>
+                                    <!-- person -->
+                                    <td class="mobile-full-width" width="50%" colspan="1">
+                                      <!-- gif -->
+                                      <img src="https://gallery.mailchimp.com/ca8e8d766cc348c7051fec7cf/images/3901a4c4-af78-41e6-ae1e-f91fd9e977b0.gif" width="70" style="max-width:70px" alt="">
+                                      <!-- person name --><img src="https://gallery.mailchimp.com/ca8e8d766cc348c7051fec7cf/images/4c9e0a3f-e59c-431c-9ed6-4d0d22594790.png" height="25" style="padding: 0px 5px 20px 10px;" alt="">
+                                    </td>
+                                    <!-- end person -->
+                                  </tr>
+                                  <tr>
+                                    <!-- title and quote -->
+                                    <td style="padding-top:0px;">
+                                      <h2 mc:edit="guest_title">
+                                        <u>TAKE A LOOK AT THIS YEAR’S NATIONAL GINGERBREAD HOUSE COMPETITION WINNERS</u>
+                                      </h2>
+                                      <p mc:edit="guest_caption">Looks like a sweet victory.</p>
+                                    </td>
+                                    <!-- end title and quote -->
+                                    <!-- picture -->
+                                    <td class="link-img">
+                                      <img src="https://gallery.mailchimp.com/ca8e8d766cc348c7051fec7cf/images/0f227cf4-8301-4a73-a784-cfc182695c90.jpg" style="border: 2px solid white; width:100%;" alt="" mc:edit="guest_link_img">
+                                    </td>
+                                    <!-- end picture -->
+                                  </tr>
+                                </table>
+                                <hr>
+                              </td>
+                              <td class="margin" width="140" colspan="1"></td>
+                            </tr>
+                          </table>
+                          <!-- end individual link -->
+                          <!-- flashback friday sign -->
+                          <table class="main-container">
+                            <tr>
+                              <td class="margin" width="220" colspan="1"></td>
+                              <td class="main content-block" width="840" colspan="4">
+                                <img class="fbf-img" src="https://gallery.mailchimp.com/ca8e8d766cc348c7051fec7cf/images/f6f28c73-8af5-40b4-9e6a-05431c06cddd.png" alt="" style="display:block; margin:auto; margin-bottom: 0px; width: 100%" mc:edit="fbf_sign">
+                              </td>
+                              <td class="margin" width="220" colspan="1"></td>
+                            </tr>
+                          </table>
+                          <!-- end flashback friday sign -->
+                          <!-- fbf video -->
+                          <table class="main-container" id="fbf">
+                            <tr>
+                              <td class="margin" width="5%" colspan="1"></td>
+                              <td class="main content-block" width="800" colspan="4">
+                                <table width="100%">
+                                  <!-- video title -->
+                                  <tr>
+                                    <td>
+                                      <div>
+                                        <img class="google-img" src="https://gallery.mailchimp.com/ca8e8d766cc348c7051fec7cf/images/aff529a1-6644-4037-b9b9-a7c75126c1f6.png" style="display: inline-block; postion:relative; top:10px; margin-right: 5px;" alt="">
+                                        <h2 mc:edit="flashback_title">OFFICE CULTURE</h2>
+                                      </div>
+                                    </td>
+                                  </tr>
+                                  <!-- video -->
+                                  <tr>
+                                    <td colspan="2" id="video">
+                                      <img src="https://gallery.mailchimp.com/ca8e8d766cc348c7051fec7cf/images/0116884c-8e15-49f9-ac35-69dfc91545d1.jpg" alt="" mc:edit="flashback_featured">
+                                    </td>
+                                  </tr>
+                                </table>
+                              </td>
+                              <td class="margin" width="5%" colspan="1"></td>
+                            </tr>
+                          </table>
+                          <!-- end fbf video -->
+                          <!-- footer -->
+                          <table class="main-container" style="margin-bottom:150px;">
+                            <tr>
+                              <td class="margin" width="370"></td>
+                              <td class="main" width="540">
+                                <table>
+                                  <tr>
+                                    <td align="center" width="180" colspan="1">
+                                      <a href="https://www.facebook.com/wearecmykbk/?rf=656379894504216"><img src="https://gallery.mailchimp.com/ca8e8d766cc348c7051fec7cf/images/f08aeacd-f7f9-47b0-82f0-c70f6dfc1f6c.png" alt=""></a>
+                                    </td>
+                                    <td align="center" width="180" colspan="1">
+                                      <a href="https://www.linkedin.com/company/operation-cmyk/about/"><img src="https://gallery.mailchimp.com/ca8e8d766cc348c7051fec7cf/images/f584020e-ade8-4576-8c78-3361347b72a4.png" alt=""></a>
+                                    </td>
+                                    <td align="center" width="180" colspan="1">
+                                      <a href="https://www.instagram.com/wearecmyk/?hl=en"><img src="https://gallery.mailchimp.com/ca8e8d766cc348c7051fec7cf/images/d77afaeb-300d-4e49-b226-664c4d4bbc72.png" alt=""></a>
+                                    </td>
+                                  </tr>
+                                </table>
+                              </td>
+                              <td class="margin" width="370"></td>
+                            </tr>
+                          </table>
+                          <!-- end footer -->
+                        </body>
+</html>
