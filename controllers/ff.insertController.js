@@ -1,7 +1,10 @@
 const mongoose = require('mongoose');
+const ObjectId = require('mongodb').ObjectID;
 const FF = require('../models/ff.ff');
 const User = require('../models/ff.user');
 const ChosenFF = require('../models/ff.chosen')
+const { check, validationResult } = require('express-validator');
+const { sanitizeBody } = require('express-validator/filter');
 let request = require('request');
 const Mailchimp = require('mailchimp-api-v3');
 const mailchimp = new Mailchimp(process.env.MAILCHIMP_KEY);
@@ -72,10 +75,16 @@ exports.setQuote = function (req, res) {
 
     let q = req.body.format;
     let entryId = req.params.id;
-  console.log(q);
+    console.log(q);
     FF.findById(entryId, function (err, e) {
         e.actualQuote = q;
-        e.save();
+        e.save(function(err) {
+            if (err) {
+                console.log(err);
+            } else {
+                res.status(204).send();
+            }
+        });
     });
 
     // FF.find({"used": true}, function(err, e) {
@@ -84,13 +93,40 @@ exports.setQuote = function (req, res) {
     //        })
     //    })
 
-    console.log(req.body);
-    res.status(204).send();
+    // console.log(req.body);
+}
+
+
+
+exports.editUser = function(req, res) {
+    console.log(req.body.uid);
+    let uid = req.body.uid;
+    let url = req.body.gifLink;
+    let name = req.body.name;
+    let preferredName = req.body.preferredName;
+    let nil = req.body.nameImageLink;
+
+console.log(url);
+    User.findOne({"uid": uid}, function (err, user) {
+    user.gifLink = url;
+    user.preferredName = preferredName;
+    user.nameImageLink = nil;
+    
+    user.save(function (err) {
+        if(err) {
+            console.error('ERROR!');
+        }
+    });
+});
+    res.redirect('/submissions/' + name);
+    
 }
 
 
 exports.createFF = function (req, res) {
+    // body('name').isLength({ min: 1 }).trim().withMessage('Name empty.')
     let entries = req.body.entry;
+    // check(entries)
     let week = req.body.week;
     entries.map(function (i) {
         i = mongoose.Types.ObjectId(i);
@@ -103,6 +139,7 @@ exports.createFF = function (req, res) {
     c.save(function (err) {
         if (err)
             console.log("this is no bueno");
+            console.log(err);
     });
 
 
@@ -125,53 +162,62 @@ exports.createFF = function (req, res) {
     // }).catch(function(err) {
     //     console.log(err);
     // });
-
-    mailchimp.post('/campaigns/', {
-        type: 'regular',
-        recipients: {list_id: process.env.AUDIENCE_ID},
-        settings: {
-            subject_line: 'v v v tired',
-            preview_text: 'hello test',
-            from_name: 'iris',
-            reply_to: 'yolo@wearecmyk.com',
-            to_name: 'uh',
-            template_id: 159753
-        }
+    mailchimp.get('/templates/162189/default-content', {
+        fields: ['sections']
     }).then(function(result) {
-        console.log(result.id);
-        var campaignId = result.id;
-        var webId = result.web_id;
-        mailchimp.put('/campaigns/' + campaignId + '/content', {
-      
-            template: {
-                id: 159753,
-                sections: {
-                    "testcontent": "iris",
-                    "victory": "VICTORY!!!!",
-                    "adam_title": "awowowowwwww",
-                    "adam_caption": "adam",
-                    "adam_link_img": "https://www.google.com/",
-                    "a2_title": "bwowowowwwww",
-                    "a2_caption": "a2",
-                    "a2_link_img": "https://www.google.com/",
-                    "kevin_title": "cwowowowwwww",
-                    "kevin_caption": "kevin",
-                    "kevin_link_img": "https://www.google.com/",
-                    "chris_title": "dwowowowwwww",
-                    "chris_caption": "chris",
-                    "chris_link_img": "https://www.google.com/",
-                    "alexes_title": "ewowowowwwww",
-                    "alexes_caption": "alexes",
-                    "alexes_link_img": "https://www.google.com/",
-                }
-            }
-
-        });
-        console.log(result);
+        console.log(result.repeat_1);
         res.redirect('/fastfives');
     }).catch(function(err) {
         console.log(err);
     });
+
+
+    // mailchimp.post('/campaigns/', {
+    //     type: 'regular',
+    //     recipients: {list_id: process.env.AUDIENCE_ID},
+    //     settings: {
+    //         subject_line: 'v v v tired',
+    //         preview_text: 'hello test',
+    //         from_name: 'iris',
+    //         reply_to: 'yolo@wearecmyk.com',
+    //         to_name: 'uh',
+    //         template_id: 162189
+    //     }
+    // }).then(function(result) {
+    //     console.log(result.id);
+    //     var campaignId = result.id;
+    //     var webId = result.web_id;
+    //     mailchimp.put('/campaigns/' + campaignId + '/content', {
+      
+    //         template: {
+    //             id: 159753,
+    //             sections: {
+    //                 "testcontent": "iris",
+    //                 "victory": "VICTORY!!!!",
+    //                 "adam_title": "awowowowwwww",
+    //                 "adam_caption": "adam",
+    //                 "adam_link_img": "https://www.google.com/",
+    //                 "adamarthur_title": "bwowowowwwww",
+    //                 "adamarthur_caption": "a2",
+    //                 "adamarthur_link_img": "https://www.google.com/",
+    //                 "kevin_title": "cwowowowwwww",
+    //                 "kevin_caption": "kevin",
+    //                 "kevin_link_img": "https://www.google.com/",
+    //                 "chrislanger_title": "dwowowowwwww",
+    //                 "chrislanger_caption": "chris",
+    //                 "chrislanger_link_img": "https://www.google.com/",
+    //                 "alexes_title": "ewowowowwwww",
+    //                 "alexes_caption": "alexes",
+    //                 "alexes_link_img": "https://www.google.com/",
+    //             }
+    //         }
+
+    //     });
+    //     console.log(result);
+    //     res.redirect('/fastfives');
+    // }).catch(function(err) {
+    //     console.log(err);
+    // });
 
 
    
@@ -284,7 +330,8 @@ function createUser(uid) {
 
             u = new User({
                 uid: uid,
-                name: name
+                name: name,
+                preferredName: name
             });
 
             u.save(function (err) {
@@ -303,6 +350,8 @@ function createUser(uid) {
         }
     });
 }
+
+
 
 function restructure(ml) {
     // var obj = new Object();

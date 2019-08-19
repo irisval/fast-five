@@ -24,7 +24,6 @@ exports.displayAll = function (req, res) {
     });
 }
 
-
 exports.displayffs = function (req, res) {
     FF.find({
         "used": true
@@ -40,19 +39,60 @@ exports.displayffs = function (req, res) {
 }
 
 
-exports.displayUser = function (req, res) {
-    FF.find({
-        "name": req.params.name
-    }, function (err, s) {
+exports.displayUser =  async function (req, res) {
+    let gifLink;
+    let preferredName;
+    let nil;
+    const u = User.findOne({"name": req.params.name}, function(err, s) {
+        gifLink = s.gifLink;
+        preferredName = s.preferredName;
+        nil = s.nameImageLink;
+    });
+
+    let res1 = await u.exec();
+    const f = FF.find({"name": req.params.name}, function(err, s) {
         if (err)
             throw err;
-        if (s.length > 0)
+        if (s.length > 0) {
+            // console.log(s[0]);
             res.render('submission', {
-                'sub': s,
-                'name': req.params.name,
-                'title': 'bugaloo'
-            });
-        else
+               'sub': s,
+               'name': req.params.name,
+               'preferredName': preferredName,
+               'nil': nil,
+               'uid': s[0].uid,
+               'link': gifLink,
+               'title': 'bugaloo'
+            })
+        } else { 
             res.redirect('/submissions');
-    })
+        }
+    });
+    let res2 = await f.exec();
 }
+
+exports.displayAllUsers = function(req, res) {
+     User.find({}, function(err, s){
+        if (err)
+            console.log(err);
+        else {
+
+        res.render('users', {
+            'u': s
+        });
+        }
+       
+     });
+}
+
+
+
+
+
+
+
+
+
+
+
+

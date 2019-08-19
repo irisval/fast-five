@@ -1,21 +1,14 @@
-<nav>
-   <div class="nav-wrapper">
-      <span id="title"><u>Fast Five Submissions</u></span>
-      <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-      <ul class="right hide-on-med-and-down">
-         <li><a href="/">All Submissions</a></li>
-         <li><a href="/fastfives">Previous Fast Fives</a></li>
-         <li><a href="collapsible.html">Scoreboard</a></li>
-      </ul>
-   </div>
-</nav>
+
 <!-- 
    <form id="submitEntryForm" onsubmit="return validate(this);"> -->
+
 <form id="submitEntryForm" action="/submitentry" method="post"></form>
 <div>
    <p id="viewing">viewing all submissions</p>
    <a class='dropdown-trigger indigo accent-4 btn' href='#' data-target='dropdown1'>Filter</a>
-   <button type="submit" class='btn blue accent-3 modal-trigger' href='#confirmationModal' form="submitEntryForm">Submit Entries</button>
+  
+      <button type="submit" class='btn blue accent-3 modal-trigger' href='#confirmationModal'>Submit Entries</button>
+
    <!-- <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Modal</a>
       -->
    <div id="confirmationModal" class="modal">
@@ -25,6 +18,8 @@
             <div style="width: 100%;">
                <hr class="list-divider">
             </div>
+         </div>
+         <div class="modal-content-entries">
          </div>
       </div>
       <div class="modal-footer">
@@ -84,7 +79,7 @@
                      {{#if (hasQuote actualQuote) }}
                      <input class="layer-input" id="dd-{{id}}" type="text" name="format" value="{{actualQuote}}"/>
                      {{else}}
-                      <input class="layer-input" id="dd-{{id}}" type="text" name="format" value=""/>
+                      <input class="layer-input" id="dd-{{id}}" type="text" name="format" placeholder="Set Quote" value=""/>
                      {{/if}}
                </form>
             </div>

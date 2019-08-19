@@ -12,6 +12,18 @@ let UserSchema = new Schema({
 		type: String,
 		required: true
 	},
+	gifLink: {
+		type: String,
+		default: ''
+	},
+	nameImageLink: {
+		type: String,
+		default: ''
+	},
+	preferredName: {
+		type: String,
+		required: true
+	},
 	numWins: {
 		type: Number,
 		required: true,

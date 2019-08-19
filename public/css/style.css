@@ -60,7 +60,7 @@ nav a {
 	font-weight: 700 !important;
 	font-family: 'Open Sans';
 	text-transform: uppercase;
-	color: #656565;
+	color: #026;
 	font-size: 15px;
 	display: inline-block;
 }
@@ -168,4 +168,14 @@ li.selected {
 }
 ul.select-dropdown {
 	height: auto !important;
+}
+.sortable-ghost {
+	opacity: 0.4;
+}
+.current-ghost {
+	background-color: #f5f5f5 !important;
+}
+.collection-item a {
+	color: #026;
+	margin-bottom: 6px;
 }

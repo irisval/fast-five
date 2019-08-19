@@ -1,18 +1,27 @@
-<nav>
-<div class="nav-wrapper">
-  <span id="title"><u>Fast Five Submissions</u></span>
-  <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-  <ul class="right hide-on-med-and-down">
-    <li><a href="/">All Submissions</a></li>
-    <li><a href="/fastfives">Previous Fast Fives</a></li>
-    <li><a href="collapsible.html">Scoreboard</a></li>
-  </ul>
-</div>
-</nav>
 
-<h6>Submissions from {{name}}:</h6>
+<h6>Slack Name: {{name}}</h6>
+<h6>Number of Wins:</h6>
+<form id="user-details" action="/editUser" method="post">
+	<div class="col s12">Gif Link
+	  <div class="input-field inline">
+	    <input id="gif-link" name="gifLink" type="url" class="validate" value="{{link}}">
+	  </div>
+	</div>
+	<div class="col s12">Preferred Name
+	  <div class="input-field inline">
+	    <input id="gif-link" name="preferredName" type="text" class="validate" value="{{preferredName}}">
+	  </div>
+	</div>
+	<div class="col s12">Name Image Link
+	  <div class="input-field inline">
+	    <input id="gif-link" name="nameImageLink" type="url" class="validate" value="{{nil}}">
+	  </div>
+	</div>
+	<input name="uid" type="hidden" value="{{uid}}">
+	<input name="name" type="hidden" value="{{name}}">
+	<button type="submit" class="btn indigo accent-4">Submit</button>
+</form>
 <br>
-
 <div>
 	{{#each sub}}
 		<ul class="collection with-header">
