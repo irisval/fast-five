@@ -14,7 +14,7 @@
     "express": "^4.16.4",
     "express-handlebars": "^3.0.0",
     "express-validator": "^6.1.1",
-    "googleapis": "^27.0.0",
+    "googleapis": "^39.1.0",
     "handlebars-helpers": "^0.10.0",
     "i": "^0.3.6",
     "jquery-editable-select": "^2.2.5",
